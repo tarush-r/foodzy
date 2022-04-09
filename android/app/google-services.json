@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "345170087266",
+    "project_id": "kjsce-hack-2022",
+    "storage_bucket": "kjsce-hack-2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345170087266:android:f602477b1f77d04094303b",
+        "android_client_info": {
+          "package_name": "com.example.kjsce_hack_2022"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345170087266-ikmah0chbdkq3kpbaat75rv39i3g241n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCg-36lp5QCfSciOPdKzp70hhoQJ5_fLto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345170087266-ikmah0chbdkq3kpbaat75rv39i3g241n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
