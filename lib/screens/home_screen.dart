@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kjsce_hack_2022/screens/dashboard_screen.dart';
 import 'package:kjsce_hack_2022/screens/food_scanner_screen.dart';
+import 'package:kjsce_hack_2022/screens/ingredients_screen.dart';
 import 'package:kjsce_hack_2022/screens/profile_screen.dart';
-
 
 final db = FirebaseFirestore.instance;
 final userRef = db.collection('user');
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           DashboardScreen(),
           DashboardScreen(),
           FoodScannerScreen(),
-          DashboardScreen(),
+          GetIngredients(),
           ProfileScreen(),
           // UserHome(),
           // MealTracker2(),
