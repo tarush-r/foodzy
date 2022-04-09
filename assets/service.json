@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "starlit-granite-346720",
+  "private_key_id": "d56f164430d16baf161434555361f5591d9b45f1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC9xGpXpBn/xskb\nZxu42KbxIrxKgRZUCaWCEFpAoznjjDTfs3JztNxs7nvORrcqA6otsFKlZCUXhSR2\nev2yUgNNBPpU5QFLopTPfXmkRBvHdpOR69zBFTYCYDGFsBEQYL6NDC8qQTNbwtVr\nbVoz/OevLAxAVH+nbx7Cr7GbYEuMlOctDlz3QVgq66RNwbLPj1FjfkJ3U9O3d2T/\nS86bfgI6EhyGB9+Lc6El5vgvAu85g2zkm3w14uZIVsRRds5flduFCgyXH9eVq8iM\nIYSmvtX/oR+ey13YRc7BaMBXK1h7ctEUGC337cn6h2GPWdZXtJ5vonIokNh1EI0V\n3HBh9D6BAgMBAAECggEACYB3uKqxWJLKCBK6Gx/SABn2pp5fEVcoT+Jkun7Ry7h9\n/0N7dBq2vMeWMGZvDm3/i+kbwkdI6iwS/tG6uT6NBsK8jBqpXXGnFNqaCCUW5P5l\ndjWCqLJYsXbClAiUWicV83cMN4frO+l+CTKBBUBhE27XsDLq72XLewEUGg0Qy1ml\nMqApvTjk2S6iDna4FdfI1iMHrITXp5wuSMLfnTHjlutzGQnvHwUtcYMuAiHqaom3\nX8sSg2bvzz08vZdfksiVXnFqMXKYTUD6vWErS5OGztTsSQGCD8nkmGyxwSVD12ik\nnY20i3kTjf2aOuxePlofKqqXGJ0SpSvKA2MfGEJyiQKBgQDu8/om0a8XiB0zTkwR\nkDm85uA9VZDOm/BREKTC4AaZoWZnwx7/uNzUCRJlbFFRL13OFCwK/cih+oMRCpoQ\nZj1nu3WN/jOgkquu/f/er/VU71wtoAD86Steo6NOW+2M/i2lSDYwFvEkiTzAR4Md\nkfGdpAXGbo9XnemBo7kVcwDCnQKBgQDLTidB25DDxSI1d2IVcW3KAomEcgk329fA\nbHmw4XVlpZQvDD1PnnP4oQ2Pa60WusIfGyMVIG31V01JCU0Rb4/oYD1/0TnHivSN\n7Djr7DD1ZGNwdcbS41Ora6UOSwwZ/vfbs1yU5fhkc9CPr8iWn+WZt7LYVY0CcK/7\nenmZoE+ENQKBgQDk86v5yetkNq0T3a+RHInV77lnyzaGYG+wnKvhdNmeFkGSpihr\niWs9Vrvjphd8HFBbBoT0uxmj6e3vRCM+F1g6rikCtlAtSJtrfj/N1PbSPM4rgSWx\nLpC5iz0L9ZT1BQ4jUb9p8HF5Om2VJnAAwzeofeJysLhzkQCNkJvka16NGQKBgFvM\ndj1ufvdm1AOAXHGCPiiw7Jc5RqBKTCk+0dPkebXkBf0Ycba5vXPOhOj1nbpdqbmR\n701iz0Own90SrhHpZflvO1Wzi3tmavaKa0lb5N9o7N2i0Jv4uZb1jBngGR7D2fcC\nDhPNo1L4WHwIy3H30RyPrdmxB3LKnyvWKYIMuNrhAoGANry3KBbpWFQk9tKsTnu9\neTVgOQz4hGi04JznKH5Ku0xl5aZOlzbqVaQFntvo9LlR0KzR9KCeAlQBhc4GKLr+\nVN+muYFt1/CF5vKOFsSzuRg+4n1isPO95Q7GP0yiK4COaa0LylU/yp9Ix/Aq7k33\nDf/Tid20KhyggSKLdDcSkKg=\n-----END PRIVATE KEY-----\n",
+  "client_email": "foodzy@starlit-granite-346720.iam.gserviceaccount.com",
+  "client_id": "106007637596107010099",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/foodzy%40starlit-granite-346720.iam.gserviceaccount.com"
+}
