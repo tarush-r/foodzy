@@ -43,13 +43,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
             },
           ),
         ),
-      ],);}
+      ],
+    );
+  }
   // Widget build(BuildContext context) {
   //   return RecipeDetailScreen("324694");
   //   return Container(
   //     padding: EdgeInsets.all(50.0),
   //     child: RecipeDetailScreen("324694"),
-      
+  // Widget build(BuildContext context) {
+  //   return RecipeDetailScreen("716429");
+  //   return Container(
+  //     padding: EdgeInsets.all(50.0),
+  //     child: RecipeDetailScreen("324694"),
+
   //   );
   // }
 
@@ -68,7 +75,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             // )
             dashboardProvider.loadingRandomRecipes
                 ? Container(
-                  height: 360,
+                    height: 360,
                     child: Center(
                       child: CircularProgressIndicator(),
                     ),

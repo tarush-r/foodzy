@@ -69,7 +69,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
     var array = recipeData.extendedIngredients;
     String ok = '';
     for (int i = 0; i < array.length; i++) {
-      ok += array[i][input] + ',';
+      ok += array[i][input] + '\n';
     }
 
     print(recipeData.extendedIngredients);
@@ -94,7 +94,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
           ? Center(
         child: CircularProgressIndicator(),
       )
-          : mainPage(),
+          : SafeArea(child: mainPage()),
     );
   }
 
@@ -105,53 +105,56 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
         Align(
 
           alignment: Alignment.bottomCenter,
-          child: Container(
-            color: Colors.white,
-            alignment: Alignment.bottomCenter,
-            height: SizeConfig.screenHeight * 0.6,
-            child: Column(
-              children: [
-                Text(recipeData.title),
-                Text("Servings: " + (recipeData.servings).toString()),
-                Text("Cook duration: " +
-                    (recipeData.time).toString() +
-                    " minutes"),
-                Text("Ingredients: " + ingredientsFinal('originalName')),
-                // SizedBox(
-                //   height: 50,
-                // ),
-                Container(
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height * 0.4,
-                  child: DefaultTabController(
-                    length: 2,
-                    child: Scaffold(
-                      appBar: AppBar(
-                        backgroundColor: Colors.white,
-                        elevation: 0,
-                        toolbarHeight: 1,
-                        bottom: TabBar(
-                          tabs: [
-                            Tab(child: Text("Ingredients",
-                              style: TextStyle(color: Colors.black),),),
-                            Tab(child: Text("Instructions",
-                              style: TextStyle(color: Colors.black),),),
+          child: SafeArea(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              color: Colors.white,
+              alignment: Alignment.bottomCenter,
+              height: SizeConfig.screenHeight * 0.6,
+              child: Column(              
+                children: [
+                  Text(recipeData.title, style: TextStyle(fontSize: 25),),
+                  Text("Servings: " + (recipeData.servings).toString(), style: TextStyle(fontSize: 20),),
+                  Text("Cook duration: " +
+                      (recipeData.time).toString() +
+                      " minutes",style: TextStyle(fontSize: 20),),
+                  //Text("Ingredients: " + ingredientsFinal('originalName'),style: TextStyle(fontSize: 15),),
+                  // SizedBox(
+                  //   height: 50,
+                  // ),
+                  Container(
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height * 0.4,
+                    child: DefaultTabController(
+                      length: 2,
+                      child: Scaffold(
+                        appBar: AppBar(
+                          backgroundColor: Colors.white,
+                          elevation: 0,
+                          toolbarHeight: 1,
+                          bottom: TabBar(
+                            tabs: [
+                              Tab(child: Text("Ingredients",
+                                style: TextStyle(color: Colors.black,fontSize: 20),),),
+                              Tab(child: Text("Instructions",
+                                style: TextStyle(color: Colors.black,fontSize: 20),),),
+                            ],
+                          ),
+                        ),
+                        body: TabBarView(
+                          children: [
+                            SingleChildScrollView(child: Wrap(children: [Text(ingredientsFinal('original'),style: TextStyle(fontSize: 20),)])),
+                            SingleChildScrollView(child: Wrap(children: [Text(instructionFinal(),style: TextStyle(fontSize: 20),)]))
                           ],
                         ),
                       ),
-                      body: TabBarView(
-                        children: [
-                          Text(ingredientsFinal('original')),
-                          Text(instructionFinal())
-                        ],
-                      ),
                     ),
-                  ),
-                )
+                  )
 
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -161,7 +164,8 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
   }
 
   Widget buildBackground(String url) {
-    return Image.network(url);
+    return Padding(child: Image.network(url),padding: EdgeInsets.all(20),
+    );
   }
 
 
