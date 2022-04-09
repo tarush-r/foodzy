@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kjsce_hack_2022/screens/dashboard_screen.dart';
+import 'package:kjsce_hack_2022/screens/ingredients_screen.dart';
 import 'package:kjsce_hack_2022/screens/profile_screen.dart';
 
 
@@ -65,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
           DashboardScreen(),
           DashboardScreen(),
           DashboardScreen(),
-          DashboardScreen(),
+          GetIngredients(),
           ProfileScreen(),
           // UserHome(),
           // MealTracker2(),
