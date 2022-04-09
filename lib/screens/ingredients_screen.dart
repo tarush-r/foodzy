@@ -13,7 +13,7 @@ class GetIngredients extends StatefulWidget {
 class _GetIngredientsState extends State<GetIngredients> {
   List<String> ingredientsList = [];
   final controller = TextEditingController();
-  final String apiKey = "21725763e0f44f30a833ef19fd9a0a2e";
+  final String apiKey = "52b9a1ca78ac4edd9bc3721fba500496";
   final String apiURL = "https://api.spoonacular.com/recipes/findByIngredients";
   List<RandomRecipeResultModel> recipeList = [];
   bool pressed = false;
@@ -37,6 +37,7 @@ class _GetIngredientsState extends State<GetIngredients> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
@@ -49,13 +50,14 @@ class _GetIngredientsState extends State<GetIngredients> {
         backgroundColor: Colors.deepPurple,
         label: Text('Get Recipes'),
       ),
-      body: Padding(
+      body:Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 60.0),
         child: Column(
           children: [
             TextField(
               controller: controller,
               decoration: InputDecoration(
+                  border: OutlineInputBorder(),
                   hintText: "Enter ingredients",
                   suffixIcon: IconButton(
                     icon: Icon(Icons.send),
@@ -82,8 +84,15 @@ class _GetIngredientsState extends State<GetIngredients> {
               child: Wrap(
                 children: [
                   for( String item in ingredientsList) Chip(
-                    label: Text(item),
-                    deleteIcon: Icon(Icons.clear),
+                    label: Text(item,
+                      style: TextStyle(fontStyle: FontStyle.italic,color: Colors.white),
+                    ),
+                    //elevation: 20,
+                    padding: EdgeInsets.all(8),
+                    backgroundColor: Colors.deepOrangeAccent,
+                    deleteIcon: Icon(
+                      Icons.clear,
+                    size:15.0,),
                     onDeleted: () {
                       setState(() {
                         ingredientsList.remove(item);
@@ -93,6 +102,7 @@ class _GetIngredientsState extends State<GetIngredients> {
                 ],
               ),
             ),
+
             Container(
               height: MediaQuery
                   .of(context)
@@ -108,18 +118,16 @@ class _GetIngredientsState extends State<GetIngredients> {
                     height: 150,
                     width: double.maxFinite,
                     child: Card(
-                      elevation: 2.0,
+                      elevation: 0.0,
+                      color: Colors.white,
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CircleAvatar(
-                            backgroundImage: NetworkImage(recipeList[index].imageUrl),
-                              radius: 50,
-                            ),
                             Expanded(
                               child: Column(
+
                                 children: [
                                     Text(recipeList[index].title,
                                       maxLines: 2,
@@ -129,7 +137,7 @@ class _GetIngredientsState extends State<GetIngredients> {
                                         fontSize: 17
                                       ),
                                     ),
-                                  Text("Missing Ingredients: ${recipeList[index].missedIngredients}",
+                                  /*Text("Missing Ingredients: ${recipeList[index].missedIngredients}",
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -144,10 +152,25 @@ class _GetIngredientsState extends State<GetIngredients> {
                                         fontWeight: FontWeight.w300,
                                         fontSize: 13
                                     ),
-                                  ),
+                                  ),*/
                                 ],
                               ),
                             ),
+                            Container(
+                              width: 150,
+                              //margin: EdgeInsets.all(10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image(
+                                  image: NetworkImage(
+                                      recipeList[index].imageUrl),
+                                ),
+                              ),
+                            ),
+                            /*CircleAvatar(
+                              backgroundImage: NetworkImage(recipeList[index].imageUrl),
+                              radius: 50,
+                            ), */
 
                           ],
                         ),
@@ -162,6 +185,7 @@ class _GetIngredientsState extends State<GetIngredients> {
         ),
 
       ),
+
     );
   }
 }
