@@ -21,7 +21,6 @@ class AuthenticationProvider with ChangeNotifier {
   signIn(AuthCredential authCreds) async {
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(authCreds);
-    print(userCredential);
     await checkUserInFireStore(userCredential);
   }
 
