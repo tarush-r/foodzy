@@ -10,7 +10,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return RecipeDetailScreen("324694");
+    return RecipeDetailScreen("716429");
     return Container(
       padding: EdgeInsets.all(50.0),
       child: RecipeDetailScreen("324694"),
