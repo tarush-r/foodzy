@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kjsce_hack_2022/screens/detect_recipe_screen.dart';
 
 class FoodScannerScreen extends StatefulWidget {
   @override
@@ -13,7 +14,12 @@ class _FoodScannerScreenState extends State<FoodScannerScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           FloatingActionButton.extended(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DetectRecipeScreen()),
+              );
+            },
             label: Text('Camera'),
             icon: Icon(Icons.camera_alt),
           ),
