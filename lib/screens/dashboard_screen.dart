@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kjsce_hack_2022/providers/dashboard_provider.dart';
 import 'package:kjsce_hack_2022/widgets/random_recipe_result_container.dart';
 import 'package:provider/provider.dart';
+import 'package:kjsce_hack_2022/screens/recipe_detail_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -42,9 +43,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
             },
           ),
         ),
-      ],
-    );
-  }
+      ],);}
+  // Widget build(BuildContext context) {
+  //   return RecipeDetailScreen("324694");
+  //   return Container(
+  //     padding: EdgeInsets.all(50.0),
+  //     child: RecipeDetailScreen("324694"),
+      
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
