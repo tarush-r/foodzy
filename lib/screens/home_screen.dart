@@ -79,9 +79,9 @@ class _HomeScreenState extends State<HomeScreen> {
         physics: NeverScrollableScrollPhysics(),
       ),
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        activeColor: Theme.of(context).primaryColorDark,
-        inactiveColor: Theme.of(context).primaryColorLight,
+        backgroundColor: Colors.deepPurple,
+        activeColor: Colors.white,
+        inactiveColor: Colors.black,
         currentIndex: pageIndex,
         border: Border(
             top: BorderSide(
@@ -94,57 +94,57 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: pageIndex == 0
                   ? bottomNavigationBarItem(
                       Icons.home,
-                      'HOME',
+                      '',
                       Theme.of(context).buttonColor,
                     )
                   : bottomNavigationBarItem(
-                      Icons.home, 'HOME', Theme.of(context).accentColor)),
+                      Icons.home, '', Theme.of(context).accentColor)),
           BottomNavigationBarItem(
               icon: pageIndex == 1
                   ? bottomNavigationBarItem(
-                      Icons.home,
-                      'MEALS',
+                      Icons.favorite,
+                      '',
                       Theme.of(context).buttonColor,
                     )
                   : bottomNavigationBarItem(
-                      Icons.home,
-                      'MEALS',
+                      Icons.favorite,
+                      '',
                       Theme.of(context).accentColor,
                     )),
           BottomNavigationBarItem(
               icon: pageIndex == 2
                   ? bottomNavigationBarItem(
-                      Icons.home,
-                      'WORKOUTS',
+                      Icons.camera_alt,
+                      '',
                       Theme.of(context).buttonColor,
                     )
                   : bottomNavigationBarItem(
-                      Icons.home,
-                      'WORKOUTS',
+                      Icons.camera_alt,
+                      '',
                       Theme.of(context).accentColor,
                     )),
           BottomNavigationBarItem(
               icon: pageIndex == 3
                   ? bottomNavigationBarItem(
-                      Icons.home,
-                      'PROGRESS',
+                      Icons.search,
+                      '',
                       Theme.of(context).buttonColor,
                     )
                   : bottomNavigationBarItem(
-                      Icons.home,
-                      'PROGRESS',
+                      Icons.search,
+                      '',
                       Theme.of(context).accentColor,
                     )),
           BottomNavigationBarItem(
               icon: pageIndex == 4
                   ? bottomNavigationBarItem(
-                      Icons.home,
-                      'PROFILE',
+                      Icons.person,
+                      '',
                       Theme.of(context).buttonColor,
                     )
                   : bottomNavigationBarItem(
-                      Icons.home,
-                      'PROFILE',
+                      Icons.person,
+                      '',
                       Theme.of(context).accentColor,
                     )),
         ],
