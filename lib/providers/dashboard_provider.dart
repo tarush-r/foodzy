@@ -13,7 +13,7 @@ class DashboardProvider with ChangeNotifier {
     loadingRandomRecipes = true;
     notifyListeners();
     const String randomRecipeEndpoint =
-        "https://api.spoonacular.com/recipes/random?apiKey=21725763e0f44f30a833ef19fd9a0a2e&number=20";
+        "https://api.spoonacular.com/recipes/random?apiKey=d815a43f7a2644dd890a44d5f835d21d&number=20";
     var response = await http.get(Uri.parse(randomRecipeEndpoint));
     var decodedResponse = json.decode(response.body);
 

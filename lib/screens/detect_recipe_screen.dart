@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kjsce_hack_2022/providers/food_scanner_screen.dart';
+import 'package:kjsce_hack_2022/providers/food_scanner_provider.dart';
 import 'package:provider/provider.dart';
 
 class DetectRecipeScreen extends StatefulWidget {
@@ -12,18 +12,64 @@ class _DetectRecipeScreenState extends State<DetectRecipeScreen> {
   Widget build(BuildContext context) {
     return Consumer<FoodScannerProvider>(
         builder: (ctx, foodScannerProvider, child) {
-      return Scaffold(
-        body: Column(
-          children: [
-            foodScannerProvider.downloadUrl == null
-                ? Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(foodScannerProvider.downloadUrl)),
-                    ),
-                  )
-                : Center(child: CircularProgressIndicator()),
-          ],
+      return SafeArea(
+        child: Scaffold(
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
+          floatingActionButton: FloatingActionButton.extended(
+              onPressed: () {
+                if (foodScannerProvider.downloadUrl != null) {
+                  foodScannerProvider
+                      .extractRecipe(foodScannerProvider.downloadUrl);
+                }
+              },
+              label: Text('Extract Recipe')),
+          body: Column(
+            children: [
+              foodScannerProvider.downloadUrl != null
+                  ? Container(
+                      width: double.infinity,
+                      height: 300,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image:
+                                NetworkImage(foodScannerProvider.downloadUrl)),
+                      ),
+                    )
+                  : Center(child: CircularProgressIndicator()),
+              foodScannerProvider.extractingRecipe == true
+                  ? Container(
+                      child: CircularProgressIndicator(),
+                    )
+                  : !foodScannerProvider.recipeAlreadyExtracted
+                      ? Container()
+                      : Expanded(
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount:
+                                foodScannerProvider.extractedRecipes.length,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                margin: const EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        foodScannerProvider
+                                            .extractedRecipes[index]['title'],
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+            ],
+          ),
         ),
       );
     });

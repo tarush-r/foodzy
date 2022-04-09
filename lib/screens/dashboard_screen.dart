@@ -60,9 +60,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
             //       : buildRandomRecipesRow(dashboardProvider),
             // )
             dashboardProvider.loadingRandomRecipes
-                ? Center(child: CircularProgressIndicator())
+                ? Container(
+                  height: 360,
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  )
                 : Container(
-                    height: 500,
+                    height: 360,
                     child: buildRandomRecipesRow(dashboardProvider),
                   ),
           ],

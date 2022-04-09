@@ -16,8 +16,16 @@ class RandomRecipeResultContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 160,
-      margin: const EdgeInsets.only(left: 5, right: 5),
+      margin: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey,
+            blurRadius: 5.0,
+          ),
+        ],
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
