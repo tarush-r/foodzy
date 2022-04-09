@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kjsce_hack_2022/providers/food_scanner_provider.dart';
+import 'package:kjsce_hack_2022/screens/recipe_detail_screen.dart';
 import 'package:provider/provider.dart';
 
 class DetectRecipeScreen extends StatefulWidget {
@@ -50,19 +51,31 @@ class _DetectRecipeScreenState extends State<DetectRecipeScreen> {
                             itemCount:
                                 foodScannerProvider.extractedRecipes.length,
                             itemBuilder: (context, index) {
-                              return Container(
-                                margin: const EdgeInsets.all(5),
-                                padding: const EdgeInsets.all(5),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        foodScannerProvider
-                                            .extractedRecipes[index]['title'],
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    )
-                                  ],
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              RecipeDetailScreen(
+                                                  foodScannerProvider
+                                                          .extractedRecipes[
+                                                      index]['id'])));
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.all(5),
+                                  padding: const EdgeInsets.all(5),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          foodScannerProvider
+                                              .extractedRecipes[index]['title'],
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               );
                             },

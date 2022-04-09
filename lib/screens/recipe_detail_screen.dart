@@ -28,7 +28,7 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
   Future<RecipeDetails> fetchRecipeDetails() async {
     final response = await http.get(Uri.parse(
         'https://api.spoonacular.com/recipes/' +
-            this.widget.foodId +
+            this.widget.foodId.toString() +
             '/information?apiKey=' +
             this.apiKey +
             '&includeNutrition=false'));
