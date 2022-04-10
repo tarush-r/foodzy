@@ -81,6 +81,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     ),
                   )
                 : Container(
+                    margin: const EdgeInsets.only(top: 10, left: 10),
                     height: 360,
                     child: buildRandomRecipesRow(dashboardProvider),
                   ),

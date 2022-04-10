@@ -18,12 +18,11 @@ class RecipeDetailScreen extends StatefulWidget {
 }
 
 class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
-  bool isLoading;
+  bool isLoading = true;
   RecipeDetails recipeData;
   final apiKey = "d815a43f7a2644dd890a44d5f835d21d";
   List<String> ingredients = [];
   final instructions = '';
-
 
   Future<RecipeDetails> fetchRecipeDetails() async {
     final response = await http.get(Uri.parse(
@@ -77,6 +76,11 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
     return ok;
   }
 
+  String removeAllHtmlTags(String htmlText) {
+    RegExp exp = RegExp(r"<[^>]*>", multiLine: true, caseSensitive: true);
+
+    return htmlText.replaceAll(exp, '');
+  }
 
   @override
   void initState() {
@@ -90,10 +94,10 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: isLoading
+      body: isLoading == true
           ? Center(
-        child: CircularProgressIndicator(),
-      )
+              child: CircularProgressIndicator(),
+            )
           : SafeArea(child: mainPage()),
     );
   }
@@ -103,7 +107,6 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
       children: <Widget>[
         buildBackground(recipeData.imageUrl),
         Align(
-
           alignment: Alignment.bottomCenter,
           child: SafeArea(
             child: Container(
@@ -111,22 +114,28 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
               color: Colors.white,
               alignment: Alignment.bottomCenter,
               height: SizeConfig.screenHeight * 0.6,
-              child: Column(              
+              child: Column(
+                // crossAxisAlignment: CrossA,
                 children: [
-                  Text(recipeData.title, style: TextStyle(fontSize: 25),),
-                  Text("Servings: " + (recipeData.servings).toString(), style: TextStyle(fontSize: 20),),
-                  Text("Cook duration: " +
-                      (recipeData.time).toString() +
-                      " minutes",style: TextStyle(fontSize: 20),),
+                  Text(
+                    recipeData.title,
+                    style: TextStyle(fontSize: 25),
+                  ),
+                  Text(
+                    "Servings: " + (recipeData.servings).toString(),
+                    style: TextStyle(fontSize: 20, color: Colors.black54),
+                  ),
+                  Text(
+                    // "Cook duration: " +
+                    (recipeData.time).toString() + " minutes",
+                    style: TextStyle(fontSize: 20, color: Colors.black54),
+                  ),
                   //Text("Ingredients: " + ingredientsFinal('originalName'),style: TextStyle(fontSize: 15),),
                   // SizedBox(
                   //   height: 50,
                   // ),
                   Container(
-                    height: MediaQuery
-                        .of(context)
-                        .size
-                        .height * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.4,
                     child: DefaultTabController(
                       length: 2,
                       child: Scaffold(
@@ -136,37 +145,66 @@ class _RecipeDetailScreenState extends State<RecipeDetailScreen> {
                           toolbarHeight: 1,
                           bottom: TabBar(
                             tabs: [
-                              Tab(child: Text("Ingredients",
-                                style: TextStyle(color: Colors.black,fontSize: 20),),),
-                              Tab(child: Text("Instructions",
-                                style: TextStyle(color: Colors.black,fontSize: 20),),),
+                              Tab(
+                                child: Text(
+                                  "Ingredients",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 20),
+                                ),
+                              ),
+                              Tab(
+                                child: Text(
+                                  "Instructions",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 20),
+                                ),
+                              ),
                             ],
                           ),
                         ),
                         body: TabBarView(
                           children: [
-                            SingleChildScrollView(child: Wrap(children: [Text(ingredientsFinal('original'),style: TextStyle(fontSize: 20),)])),
-                            SingleChildScrollView(child: Wrap(children: [Text(instructionFinal(),style: TextStyle(fontSize: 20),)]))
+                            SingleChildScrollView(
+                                child: Wrap(children: [
+                              Text(
+                                ingredientsFinal('original'),
+                                style: TextStyle(fontSize: 20),
+                              )
+                            ])),
+                            SingleChildScrollView(
+                                child: Wrap(children: [
+                              Text(
+                                removeAllHtmlTags(instructionFinal()),
+                                style: TextStyle(fontSize: 20),
+                              )
+                            ]))
                           ],
                         ),
                       ),
                     ),
                   )
-
                 ],
               ),
             ),
           ),
         ),
-
       ],
     );
   }
 
   Widget buildBackground(String url) {
-    return Padding(child: Image.network(url),padding: EdgeInsets.all(20),
+    return Container(
+      width: SizeConfig.screenWidth,
+      height: SizeConfig.screenHeight * 0.4,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        image: DecorationImage(
+          image: NetworkImage(url),
+          fit: BoxFit.fitHeight,
+        ),
+      ),
+      // child: Image.network(url),
+      margin: EdgeInsets.all(20),
     );
   }
-
-
 }
