@@ -23,11 +23,13 @@ class _FoodScannerScreenState extends State<FoodScannerScreen> {
               onPressed: () {
                 foodScannerProvider.pickImage(ImageSource.camera, context);
               },
+              backgroundColor: Colors.deepPurple,
               label: Text('Camera'),
               icon: Icon(Icons.camera_alt),
             ),
             FloatingActionButton.extended(
               heroTag: 'btn2',
+              backgroundColor: Colors.deepPurple,
               onPressed: () {
                 foodScannerProvider.pickImage(ImageSource.gallery, context);
               },

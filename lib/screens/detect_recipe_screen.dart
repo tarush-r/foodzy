@@ -18,6 +18,7 @@ class _DetectRecipeScreenState extends State<DetectRecipeScreen> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerFloat,
           floatingActionButton: FloatingActionButton.extended(
+            backgroundColor: Colors.deepPurple,
               onPressed: () {
                 if (foodScannerProvider.downloadUrl != null) {
                   foodScannerProvider
