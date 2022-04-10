@@ -115,37 +115,37 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
               icon: pageIndex == 2
                   ? bottomNavigationBarItem(
-                      Icons.home,
-                      'WORKOUTS',
+                      Icons.camera_alt,
+                      'SCAN',
                       Theme.of(context).buttonColor,
                     )
                   : bottomNavigationBarItem(
-                      Icons.home,
-                      'WORKOUTS',
+                      Icons.camera_alt,
+                      'SCAN',
                       Theme.of(context).accentColor,
                     )),
           BottomNavigationBarItem(
               icon: pageIndex == 3
                   ? bottomNavigationBarItem(
-                      Icons.home,
-                      'PROGRESS',
+                      Icons.fastfood,
+                      'INGREDIENTS',
                       Theme.of(context).buttonColor,
                     )
                   : bottomNavigationBarItem(
-                      Icons.home,
-                      'PROGRESS',
+                      Icons.fastfood,
+                      'INGREDIENTS',
                       Theme.of(context).accentColor,
                     )),
           BottomNavigationBarItem(
               icon: pageIndex == 4
                   ? bottomNavigationBarItem(
-                      Icons.home,
-                      'PROFILE',
+                      Icons.settings,
+                      'SETTINGS',
                       Theme.of(context).buttonColor,
                     )
                   : bottomNavigationBarItem(
-                      Icons.home,
-                      'PROFILE',
+                      Icons.settings,
+                      'SETTINGS',
                       Theme.of(context).accentColor,
                     )),
         ],
