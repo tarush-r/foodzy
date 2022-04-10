@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kjsce_hack_2022/providers/dashboard_provider.dart';
+import 'package:kjsce_hack_2022/screens/joke_trivia.dart';
 import 'package:kjsce_hack_2022/widgets/random_recipe_result_container.dart';
 import 'package:provider/provider.dart';
 import 'package:kjsce_hack_2022/screens/recipe_detail_screen.dart';
+import 'package:kjsce_hack_2022/screens/substitute_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -65,8 +67,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Consumer<DashboardProvider>(
         builder: (ctx, dashboardProvider, child) {
       return Scaffold(
-        body: ListView(
-          shrinkWrap: true,
+        body: Column(
           children: [
             // Expanded(
             //   child: dashboardProvider.loadingRandomRecipes
@@ -85,8 +86,45 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     height: 360,
                     child: buildRandomRecipesRow(dashboardProvider),
                   ),
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  // Expanded(
+                  //   child: dashboardProvider.loadingRandomRecipes
+                  //       ? Center(child: CircularProgressIndicator())
+                  //       : buildRandomRecipesRow(dashboardProvider),
+                  // )
+                  dashboardProvider.loadingRandomRecipes
+                      ? Center(child: CircularProgressIndicator())
+                      : Container(
+                          height: 500,
+                          child: buildRandomRecipesRow(dashboardProvider),
+                        ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.all(10),
+                      child: ElevatedButton(
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> SubstituteIngredients()));
+                          },
+                          child: Text('Substitute Ingredients')),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ],
         ),
+
       );
     });
   }
