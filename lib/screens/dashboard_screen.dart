@@ -86,24 +86,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     height: 360,
                     child: buildRandomRecipesRow(dashboardProvider),
                   ),
-            Expanded(
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  // Expanded(
-                  //   child: dashboardProvider.loadingRandomRecipes
-                  //       ? Center(child: CircularProgressIndicator())
-                  //       : buildRandomRecipesRow(dashboardProvider),
-                  // )
-                  dashboardProvider.loadingRandomRecipes
-                      ? Center(child: CircularProgressIndicator())
-                      : Container(
-                          height: 500,
-                          child: buildRandomRecipesRow(dashboardProvider),
-                        ),
-                ],
-              ),
-            ),
+            // Expanded(
+            //   child: ListView(
+            //     shrinkWrap: true,
+            //     children: [
+            //       // Expanded(
+            //       //   child: dashboardProvider.loadingRandomRecipes
+            //       //       ? Center(child: CircularProgressIndicator())
+            //       //       : buildRandomRecipesRow(dashboardProvider),
+            //       // )
+            //       dashboardProvider.loadingRandomRecipes
+            //           ? Center(child: CircularProgressIndicator())
+            //           : Container(
+            //               height: 500,
+            //               child: buildRandomRecipesRow(dashboardProvider),
+            //             ),
+            //     ],
+            //   ),
+            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -113,8 +113,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     Container(
                       margin: const EdgeInsets.all(10),
                       child: ElevatedButton(
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> SubstituteIngredients()));
+                          style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.deepPurple)),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        SubstituteIngredients()));
                           },
                           child: Text('Substitute Ingredients')),
                     ),
@@ -124,7 +131,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           ],
         ),
-
       );
     });
   }

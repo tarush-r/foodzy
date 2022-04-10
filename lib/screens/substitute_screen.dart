@@ -12,7 +12,8 @@ class _SubstituteIngredientsState extends State<SubstituteIngredients> {
   List<dynamic> substituteIngredients = [];
   @override
   Widget build(BuildContext context) {
-    return Consumer<DashboardProvider>(builder: (ctx,dashboardProvider,child){
+    return Consumer<DashboardProvider>(
+        builder: (ctx, dashboardProvider, child) {
       return Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 100, horizontal: 30),
@@ -20,38 +21,38 @@ class _SubstituteIngredientsState extends State<SubstituteIngredients> {
             children: [
               TextField(
                 controller: controller,
-                decoration: InputDecoration(
-                    hintText: 'Enter ingredient name'
-                ),
+                decoration: InputDecoration(hintText: 'Enter ingredient name'),
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: ElevatedButton(
-                    onPressed: () async{
-                      substituteIngredients = await dashboardProvider.substituteIngredients(controller.text);
-                      setState(() {
-
-                      });
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.deepPurple)),
+                    onPressed: () async {
+                      substituteIngredients = await dashboardProvider
+                          .substituteIngredients(controller.text);
+                      setState(() {});
                     },
                     child: Text('Find Substitutes')),
               ),
-             Expanded(
-               child: ListView.builder(
-                 shrinkWrap: true,
-                padding: const EdgeInsets.all(8),
-                itemCount: substituteIngredients.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      height: 50,
-                      color: Colors.amber,
-                      child: Center(child: Text('${substituteIngredients[index]}')),
-                    ),
-                  );
-                }
-          ),
-             ),
+              Expanded(
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.all(8),
+                    itemCount: substituteIngredients.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: 50,
+                          color: Colors.amber,
+                          child: Center(
+                              child: Text('${substituteIngredients[index]}')),
+                        ),
+                      );
+                    }),
+              ),
             ],
           ),
         ),
